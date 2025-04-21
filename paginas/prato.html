@@ -1,0 +1,33 @@
+<style>
+    body {
+      background-image: url('prato.webp'); /* Caminho da imagem */
+      background-size: cover;             /* Faz a imagem cobrir a tela inteira */
+      background-repeat: no-repeat;       /* Não repete a imagem */
+      background-position: center;        /* Centraliza a imagem */
+      margin: 0;
+      padding: 0;
+      font-size: 24px; /* aumenta o tamanho do texto base */
+      font-family: Arial, sans-serif;
+    }
+    .botao2 {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 75%;
+      cursor: pointer;
+      width: 5%;
+      height: 5%;
+      margin : 10px;
+    }
+    .botao2:hover {
+      background-color: #218838;
+    }
+</style>
+
+<form action="pratoback.php" method="post">
+    Id Prato:      <input type="text" name="idPrato" size="2"/> <br/>
+    Prato:         <input type="text" name="Prato" size="45"/><br/>
+    <input class="botao2" value="Inserir" type="submit"    name="insPrato">
+</form>
