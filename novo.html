@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Fácil: Cadastro</title>
+</head>
+<body>
+
+<h2>Digite suas informações:</h2>
+
+<form method="post" action="cadastrar.php">
+    <label for="nov_nome">Nome:</label><br>
+    <input type="text" name="nov_nome" id="nov_nome"><br>
+
+    <label for="nov_log">Seu login (Apenas Números):</label><br>
+    <input type="text" name="nov_log" id="nov_log"><br>
+
+    <label for="nov_senha">Sua senha:</label><br>
+    <input type="password" name="nov_senha" id="nov_senha"><br>
+
+    <label for="nivelSelect">Nível:</label><br>
+    <select id="nivelSelect" name="n1"></select><br>
+
+    <input type="submit" value="Cadastrar">
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // ✅ Busca os níveis diretamente do banco via API
+        const response = await fetch("http://localhost:3000/niveis");
+        const niveis = await response.json();
+
+        // ✅ Preenchendo o `<select>` com os dados do banco
+        const select = document.getElementById("nivelSelect");
+        select.innerHTML = "<option value=''>Selecione um nível</option>";
+
+        niveis.forEach(row => {
+            select.innerHTML += `<option value="${row.idcess}">${row.nivel}</option>`;
+        });
+
+    } catch (error) {
+        console.error("❌ Erro ao carregar níveis do banco:", error);
+    }
+});
+</script>
+
+</body>
+</html>
